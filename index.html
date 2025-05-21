@@ -1,242 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dhruv's Portfolio</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Segoe UI", sans-serif;
-        background: #f4f6f8;
-        color: #333;
-        line-height: 1.6;
-      }
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 1rem;
-      }
-      header {
-        background: #0d6efd;
-        color: white;
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      nav.container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        font-weight: bold;
-        font-size: 1.5rem;
-      }
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 1rem;
-      }
-      nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      nav a:hover {
-        color: #ffc107;
-      }
-      section {
-        margin-top: 2rem;
-        background: white;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      }
-      h2 {
-        color: #0d6efd;
-        border-bottom: 2px solid #0d6efd;
-        margin-bottom: 1rem;
-      }
-      ul.simple-list {
-        list-style: disc inside;
-      }
-      #welcome {
-        display: grid;
-        gap: 1rem;
-        align-items: center;
-      }
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shreyash Gharat | My Digital Identity</title>
+  <link rel="icon" href="favicon.ico" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI CDN (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/daisyui"></script>
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<!-- Vanta.js and Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 
-      /* Properly scaling and fitting the image */
-      #welcome img {
-        max-width: 100%; /* Ensure image scales to fit the container */
-        height: 320px; /* Maintain the aspect ratio */
-        object-fit: cover; /* Ensures the image fills the area without distortion */
-        border-radius: 12px; /* Optional: rounded corners */
-        max-height: 320px; /* Ensure the image does not grow too tall */
-        display: block; /* Remove any space below the image */
-        margin: 0 auto; /* Center the image */
-      }
+<script>
+  VANTA.WAVES({
+    el: "#welcome",
+    mouseControls: true,
+    touchControls: true,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x0077be,
+    shininess: 50,
+    waveHeight: 20,
+    waveSpeed: 1.2,
+    zoom: 0.85
+  });
+</script>
 
-      .label {
-        font-weight: bold;
-        color: #0d6efd;
-      }
-      footer {
-        text-align: center;
-        padding: 1rem;
-        background: #212529;
-        color: white;
-        margin-top: 2rem;
-      }
-      @media (max-width: 768px) {
-        nav.container {
-          flex-direction: column;
-        }
-        nav ul {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav class="container">
-        <div class="logo">MyPortfolio</div>
-        <ul>
-          <li><a href="#welcome">Welcome</a></li>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#achievements">Achievements</a></li>
-          <li><a href="#future-goals">Future Goals</a></li>
-          <li><a href="#personal-side">Personal Side</a></li>
-          <li><a href="#skills">Technical Skills</a></li>
-        </ul>
-      </nav>
-    </header>
+<body class="bg-blue-50 text-blue-900 font-sans">
+  <header class="bg-blue-700 shadow-md p-4 text-white flex justify-between items-center">
+    <h1 class="text-xl font-bold">My Identity</h1>
+    <ul class="flex space-x-4">
+      <li><a href="#welcome" class="hover:underline">Welcome</a></li>
+      <li><a href="#about" class="hover:underline">About Me</a></li>
+      <li><a href="#achievements" class="hover:underline">Achievements</a></li>
+      <li><a href="#goals" class="hover:underline">Goals</a></li>
+      <li><a href="#contact" class="hover:underline">Contact</a></li>
+    </ul>
+  </header>
+<section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center relative overflow-hidden" data-aos="fade-in" style="height: auto; min-height: 600px;">
+  <div class="relative z-10">
+    <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
+    <img src="profile.jpg" alt="My Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
+    <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
+    <video class="mx-auto rounded-lg shadow-lg" width="100%" controls autoplay loop muted>
+      <source src="intro-video.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
 
-    <main class="container">
-      <section id="welcome">
-        <p class="welcome-text">Hello! Welcome To My Digital Portfolio</p>
-        <!-- Cropped Image -->
-        <img src="Dhruv.jpeg" alt="Dhruv's Photo" />
-      </section>
+  <!-- Welcome 
+  <section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center" data-aos="fade-in">
+    <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
+    <img src="profile.jpg" alt="My Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
+    <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
+    <video class="mx-auto rounded-lg shadow-lg" width="100%" controls autoplay loop muted>
+      <source src="intro-video.mp4" type="video/mp4">
+    </video>
+  </section>  -->
 
-      <section id="about-me">
-        <h2>About Me</h2>
-        <ul>
-          <li><span class="label">Name:</span> Dhruv Gupta</li>
-          <li><span class="label">Location:</span> Dahanu, Palghar</li>
-          <li>
-            <span class="label">Education:</span> Electronics and Computer
-            Science, Mumbai University
-          </li>
-          <li>
-            <span class="label">Languages Known:</span> English, Hindi, Marathi
-          </li>
-        </ul>
-      </section>
+<!-- About Me -->
+<section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 class="text-2xl font-bold text-center mb-4">👤 About Me</h2>
+  <p><strong>Name:</strong> Shreyash Subhash Gharat</p>
+  <p><strong>Location:</strong> Saphale, Palghar, Mumbai, Maharashtra</p>
+  <p><strong>Education:</strong><br>
+    School - Sir JP International School, Palghar 401404<br>
+    College - Annasaheb Vartak College<br>
+    Degree - B.Tech in Electronics & Computer Science (Aldel St. John College of Engineering & Management)
+  </p>
+  <p><strong>Languages:</strong> English (Advanced), Marathi (Medium), Hindi (Medium)</p>
+</section>
 
-      <section id="achievements">
-        <h2>Achievements</h2>
-        <ul class="simple-list">
-          <li>
-            Project: <strong>Mini Drone</strong>
-            <ul>
-              <li>Got 3rd prize in SSC Board 2021</li>
-              <li>Participation in Eureka Pitching Competition</li>
-            </ul>
-          </li>
-          <li>
-            Certifications:
-            <ul>
-              <li>Innovative Trends in VLSI and Semiconductor Engineering</li>
-              <li>Introduction to Unix</li>
-              <li>Robotics</li>
-              <li>Iot and Electronics Course</li>
-              <li>Power Bi</li>
-              <li>C++ Programming-Beginners</li>
-              <li>Semiconductors</li>
-              <li>Combinational Digital Circuit</li>
-              <li>Sequential Digital Circuit</li>
-              <li>Digital Electronics</li>
-              <li>Introduction to MPLAB X IDE</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
+<!-- Achievements -->
+<!-- <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 class="text-2xl font-bold text-center mb-4">🏆 Achievements</h2>
+  <ul class="list-disc pl-5 space-y-2 text-blue-800">
+    <li>Major project: <strong>Gesture Vocalizer</strong></li>
+    <li>Tech competitions & hackathons</li>
+    <li>Internship at tech company</li>
+    <li>Led college team for community project</li>
+    <li>Represented college in international ideathon (Florida University)</li>
+    <li>2nd in presentation on "Pacemaker"</li>
+  </ul>
+</section> -->
+  <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 id="achievements-title" class="text-2xl font-bold text-center mb-4"></h2>
+  <ul id="achievements-list" class="list-disc pl-5 space-y-2 text-blue-800"></ul>
+</section>
 
-      <section id="future-goals">
-        <h2>Future Goals</h2>
-        <ul class="simple-list">
-          <li>
-            To complete my degree with strong skills in Electronics and Computer
-            Science.
-          </li>
-          <li>To work on innovative projects and contribute to society.</li>
-          <li>To continuously learn and grow as a professional.</li>
-        </ul>
-      </section>
+  <script>
+  fetch('achievements.json')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('achievements-title').textContent = data.title;
 
-      <section id="personal-side">
-        <h2>Personal Side</h2>
-        <h3>Hobbies/Interests</h3>
-        <ul class="simple-list">
-          <li>Running</li>
-          <li>Playing</li>
-          <li>Cooking</li>
-        </ul>
+      const list = document.getElementById('achievements-list');
+      data.items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.description;
+        list.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error('Error loading achievements:', error);
+    });
+</script>
 
-        <h3>Favourite Books</h3>
-        <ul class="simple-list">
-          <li>Krishnas Key</li>
-        </ul>
 
-        <h3>Favourite Role Model</h3>
-        <ul class="simple-list">
-          <li>My Parents</li>
-        </ul>
+<!-- Future Goals 
+<section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 class="text-2xl font-bold text-center mb-4">🚀 Future Goals</h2>
+  <p>Working on real-time projects in <strong>Generative AI</strong> and <strong>Machine Learning</strong>. Aiming to provide free <strong>cybersecurity education</strong> for social good.</p>
+</section>
 
-        <h3>Favourite Websites</h3>
-        <ul class="simple-list">
-          <li>GITHUB</li>
-        </ul>
+<!-- Personal Side -
+<section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 class="text-2xl font-bold text-center mb-4">🧠 Personal Side</h2>
+  <p><strong>Hobbies:</strong> Gaming (PUBG, BGMI, Valorant), chess, puzzles, singing, driving, riding, Hindi movies</p>
+  <p><strong>Role Model:</strong> Coding With Harry — for free coding education to Indian youth</p>
+  <p><strong>Favorite Books:</strong> Revolution of India in Tech, AI Era, Cybersecurity, Ethical Hacking</p>
+  <p><strong>Favorite Websites:</strong> YouTube, Amazon, Epic Games</p>
+  <p><strong>Favorite Startups:</strong> NVIDIA, AMD</p>
+  <p><strong>Volunteering:</strong> Building free website to teach hardware and coding</p>
+</section> -->
+<section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 id="goals-title" class="text-2xl font-bold text-center mb-4"></h2>
+  <p id="goals-description"></p>
+</section>
 
-        <h3>Favourite Startups</h3>
-        <ul class="simple-list">
-          <li>MEESHO</li>
-          <li>Zepto</li>
-          <li>Grow</li>
-        </ul>
-      </section>
+<section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+  <h2 id="personal-title" class="text-2xl font-bold text-center mb-4"></h2>
+  <div id="personal-details" class="space-y-2 text-gray-800"></div>
+</section>
+<script>
+// Load Future Goals
+fetch('goals.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('goals-title').textContent = data.title;
+    document.getElementById('goals-description').textContent = data.description;
+  })
+  .catch(error => console.error('Error loading goals:', error));
 
-      <section id="skills">
-        <h2>Technical Skills</h2>
-        <h3>Programming Languages:</h3>
-        <ul class="simple-list">
-          <li>C, C++, MATLAB</li>
-        </ul>
-        <h3>Hardware:</h3>
-        <ul class="simple-list">
-          <li>Arduino, ESP8266, Sensors (Pulse, DHT11), OLED Display</li>
-        </ul>
-        <h3>IoT Platforms:</h3>
-        <ul class="simple-list">
-          <li>ThingSpeak, Blynk, MQTT</li>
-        </ul>
-      </section>
-    </main>
+// Load Personal Side
+fetch('personal.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('personal-title').textContent = data.title;
+    const container = document.getElementById('personal-details');
 
-    <footer>
-      &copy;2025 Dhruv Gupta  |
-      <a href="https://github.com/" target="_blank" style="color: #ffc107">GitHub</a>
-      |
-      <a href="mailto:Dhruv.Gupta@example.com" style="color: #ffc107">Contact Me</a>
-    </footer>
-  </body>
+    const addParagraph = (label, value) => {
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>${label}:</strong> ${value}`;
+      container.appendChild(p);
+    };
+
+    addParagraph("Hobbies", data.details.hobbies.join(', '));
+    addParagraph("Role Model", data.details.roleModel);
+    addParagraph("Favorite Books", data.details.favoriteBooks.join(', '));
+    addParagraph("Favorite Websites", data.details.favoriteWebsites.join(', '));
+    addParagraph("Favorite Startups", data.details.favoriteStartups.join(', '));
+    addParagraph("Volunteering", data.details.volunteering);
+  })
+  .catch(error => console.error('Error loading personal section:', error));
+</script>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+    <h2 class="text-2xl font-bold text-center mb-4">Contact Me</h2>
+    <p>📞 <a href="tel:917773933725" class="text-blue-600 underline">+917773933725</a></p>
+    <p>💬 <a href="https://wa.me/917773933725" class="text-green-600 underline">Chat on WhatsApp</a></p>
+    <p>✉️ <a href="mailto:shreyashsubhash3921@gmail.com" class="text-red-600 underline">shreyashsubhash3921@gmail.com</a></p>
+    <p>📍 <iframe src="https://www.google.com/maps?q=Saphale,Maharashtra&output=embed" width="100%" height="200" style="border:0;" allowfullscreen=""></iframe></p>
+    <p class="mt-4">🌐 <a href="https://github.com/Shre3921" class="underline">GitHub</a> |
+       <a href="https://www.linkedin.com/in/shreyash-gharat-5a6a99226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="underline">LinkedIn</a> |
+       <a href="https://www.instagram.com/shreyash_s_gharat?utm_source=qr&igsh=MTAwMm9tY3AzcXUzdA==" class="underline">Instagram</a></p>
+    <form action="https://formspree.io/f/xgvkqbdp" method="POST" class="mt-6 flex flex-col gap-4">
+      <input type="text" name="name" placeholder="Your Name" required class="border p-2 rounded-md" />
+      <input type="email" name="_replyto" placeholder="Your Email" required class="border p-2 rounded-md" />
+      <textarea name="message" placeholder="Your Message" required class="border p-2 rounded-md"></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-800">Send</button>
+    </form>
+  </section>
+
+  <footer class="bg-blue-700 text-white text-center py-4 mt-12">
+    <p>© 2025 Shreyash Subhash Gharat </p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
 </html>
