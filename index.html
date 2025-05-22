@@ -3,41 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhruv Gupta | My Digital Identity</title>
+  <meta name="description" content="Dhruv Gupta - Portfolio, Education, Goals, Achievements" />
+  <meta name="author" content="Dhruv Gupta" />
+  <meta property="og:title" content="Dhruv Gupta's Portfolio" />
+  <meta property="og:image" content="link-to-your-preview-image" />
+  <meta property="og:description" content="Personal introduction portfolio site." />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="favicon.ico" />
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- DaisyUI CDN (optional) -->
+  <!-- Optional: DaisyUI -->
   <script src="https://cdn.jsdelivr.net/npm/daisyui"></script>
-  <!-- AOS for scroll animations -->
+  <!-- AOS Animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-</head>
-<!-- Vanta.js and Three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  
+  <!-- Loading Spinner CSS -->
+  <style>
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
 
-<script>
-  VANTA.WAVES({
-    el: "#welcome",
-    mouseControls: true,
-    touchControls: true,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x0077be,
-    shininess: 50,
-    waveHeight: 20,
-    waveSpeed: 1.2,
-    zoom: 0.85
-  });
-</script>
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
 
 <body class="bg-blue-50 text-blue-900 font-sans">
+
+  <!-- Navigation -->
   <header class="bg-blue-700 shadow-md p-4 text-white flex justify-between items-center">
     <h1 class="text-xl font-bold">My Identity</h1>
-    <ul class="flex space-x-4">
+    <button id="hamburger" class="md:hidden text-white p-2" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </button>
+    <ul id="navbar" class="flex space-x-4 hidden md:flex">
       <li><a href="#welcome" class="hover:underline">Welcome</a></li>
       <li><a href="#about" class="hover:underline">About Me</a></li>
       <li><a href="#achievements" class="hover:underline">Achievements</a></li>
@@ -45,162 +53,154 @@
       <li><a href="#contact" class="hover:underline">Contact</a></li>
     </ul>
   </header>
-<section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center relative overflow-hidden" data-aos="fade-in" style="height: auto; min-height: 600px;">
-  <div class="relative z-10">
-    <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
-    <img src="Dhruv.jpeg" alt="My Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
-    <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
-    <video class="mx-auto rounded-lg shadow-lg" width="100%" controls autoplay loop muted>
-      <source src="intro-video.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
 
-  <!-- Welcome 
-  <section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center" data-aos="fade-in">
-    <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
-    <img src="profile.jpg" alt="My Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
-    <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
-    <video class="mx-auto rounded-lg shadow-lg" width="100%" controls autoplay loop muted>
-      <source src="intro-video.mp4" type="video/mp4">
-    </video>
-  </section>  -->
+  <!-- Scroll to Top Button -->
+  <button id="scroll-to-top" class="fixed bottom-4 right-4 bg-blue-700 text-white p-3 rounded-full hidden md:block hover:bg-blue-800 transition-all duration-300" onclick="scrollToTop()">
+    ↑
+  </button>
 
-<!-- About Me -->
-<section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 class="text-2xl font-bold text-center mb-4">👤 About Me</h2>
-  <p><strong>Name:</strong> Dhruv Umesh Gupta</p>
-  <p><strong>Location:</strong> dahanu, Palghar, Mumbai, Maharashtra</p>
-  <p><strong>Education:</strong><br>
-    School - St Marys High School, Dahanu 401602<br>
-    College - St John Junior College <br>
-    Degree - B.Tech in Electronics & Computer Science (Aldel St. John College of Engineering & Management)
-  </p>
-  <p><strong>Languages:</strong> English (Advanced), Marathi (Medium), Hindi (Medium)</p>
-</section>
+  <!-- Welcome Section -->
+  <section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center relative overflow-hidden" data-aos="fade-in" style="min-height: 600px;">
+    <div class="relative z-10">
+      <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
+      <img src="Dhruv.jpeg" alt="Dhruv Gupta's Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
+      <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
+      <video class="mx-auto rounded-lg shadow-lg w-full" controls autoplay loop muted>
+        <source src="intro-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
 
-<!-- Achievements -->
-<!-- <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 class="text-2xl font-bold text-center mb-4">🏆 Achievements</h2>
-  <ul class="list-disc pl-5 space-y-2 text-blue-800">
-    <li>Major project: <strong>Gesture Vocalizer</strong></li>
-    <li>Tech competitions & hackathons</li>
-    <li>Internship at tech company</li>
-    <li>Led college team for community project</li>
-    <li>Represented college in international ideathon (Florida University)</li>
-    <li>2nd in presentation on "Pacemaker"</li>
-  </ul>
-</section> -->
+  <!-- About Me -->
+  <section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+    <h2 class="text-2xl font-bold text-center mb-4">👤 About Me</h2>
+    <p><strong>Name:</strong> Dhruv Umesh Gupta</p>
+    <p><strong>Location:</strong> Dahanu, Palghar, Mumbai, Maharashtra</p>
+    <p><strong>Education:</strong><br>
+      School - St Marys High School, Dahanu 401602<br>
+      College - St John Junior College<br>
+      Degree - B.Tech in Electronics & Computer Science (St. John College of Engineering & Management)
+    </p>
+    <p><strong>Languages:</strong> English (Advanced), Marathi (Medium), Hindi (Medium)</p>
+  </section>
+
+  <!-- Achievements Section (Dynamically Loaded) -->
   <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 id="achievements-title" class="text-2xl font-bold text-center mb-4"></h2>
-  <ul id="achievements-list" class="list-disc pl-5 space-y-2 text-blue-800"></ul>
-</section>
+    <h2 id="achievements-title" class="text-2xl font-bold text-center mb-4"></h2>
+    <ul id="achievements-list" class="list-disc pl-5 space-y-2 text-blue-800"></ul>
+  </section>
 
-  <script>
-  fetch('achievements.json')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('achievements-title').textContent = data.title;
+  <!-- Goals Section (Dynamically Loaded) -->
+  <section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+    <h2 id="goals-title" class="text-2xl font-bold text-center mb-4"></h2>
+    <p id="goals-description"></p>
+  </section>
 
-      const list = document.getElementById('achievements-list');
-      data.items.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item.description;
-        list.appendChild(li);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading achievements:', error);
-    });
-</script>
-
-
-<!-- Future Goals 
-<section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 class="text-2xl font-bold text-center mb-4">🚀 Future Goals</h2>
-  <p>Working on real-time projects in <strong>Generative AI</strong> and <strong>Machine Learning</strong>. Aiming to provide free <strong>cybersecurity education</strong> for social good.</p>
-</section>
-
-<!-- Personal Side -
-<section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 class="text-2xl font-bold text-center mb-4">🧠 Personal Side</h2>
-  <p><strong>Hobbies:</strong> Gaming (PUBG, BGMI, Valorant), chess, puzzles, singing, driving, riding, Hindi movies</p>
-  <p><strong>Role Model:</strong> Coding With Harry — for free coding education to Indian youth</p>
-  <p><strong>Favorite Books:</strong> Revolution of India in Tech, AI Era, Cybersecurity, Ethical Hacking</p>
-  <p><strong>Favorite Websites:</strong> YouTube, Amazon, Epic Games</p>
-  <p><strong>Favorite Startups:</strong> NVIDIA, AMD</p>
-  <p><strong>Volunteering:</strong> Building free website to teach hardware and coding</p>
-</section> -->
-<section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 id="goals-title" class="text-2xl font-bold text-center mb-4"></h2>
-  <p id="goals-description"></p>
-</section>
-
-<section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-  <h2 id="personal-title" class="text-2xl font-bold text-center mb-4"></h2>
-  <div id="personal-details" class="space-y-2 text-gray-800"></div>
-</section>
-<script>
-// Load Future Goals
-fetch('goals.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('goals-title').textContent = data.title;
-    document.getElementById('goals-description').textContent = data.description;
-  })
-  .catch(error => console.error('Error loading goals:', error));
-
-// Load Personal Side
-fetch('personal.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('personal-title').textContent = data.title;
-    const container = document.getElementById('personal-details');
-
-    const addParagraph = (label, value) => {
-      const p = document.createElement('p');
-      p.innerHTML = `<strong>${label}:</strong> ${value}`;
-      container.appendChild(p);
-    };
-
-    addParagraph("Hobbies", data.details.hobbies.join(', '));
-    addParagraph("Role Model", data.details.roleModel);
-    addParagraph("Favorite Books", data.details.favoriteBooks.join(', '));
-    addParagraph("Favorite Websites", data.details.favoriteWebsites.join(', '));
-    addParagraph("Favorite Startups", data.details.favoriteStartups.join(', '));
-    addParagraph("Volunteering", data.details.volunteering);
-  })
-  .catch(error => console.error('Error loading personal section:', error));
-</script>
-
+  <!-- Personal Side Section (Dynamically Loaded) -->
+  <section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+    <h2 id="personal-title" class="text-2xl font-bold text-center mb-4"></h2>
+    <div id="personal-details" class="space-y-2 text-gray-800"></div>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
     <h2 class="text-2xl font-bold text-center mb-4">Contact Me</h2>
-    <p>📞 <a href="tel:919503582657" class="text-blue-600 underline">+919503582657</a></p>
-    <p>💬 <a href="https://wa.me/919503582657" class="text-green-600 underline">Chat on WhatsApp</a></p>
+    <p>📞 <a href="tel:919503582657" class="text-blue-600 underline">+91 9503582657</a></p>
+    <p>💬 <a href="https://wa.me/919503582657" target="_blank" class="text-green-600 underline">Chat on WhatsApp</a></p>
     <p>✉️ <a href="mailto:123dhruv7035@sjcem.edu.in" class="text-red-600 underline">123dhruv7035@sjcem.edu.in</a></p>
-    <p>📍 <iframe src="https://www.google.com/maps?q=dahanu,Maharashtra&output=embed" width="100%" height="200" style="border:0;" allowfullscreen=""></iframe></p>
-    <p class="mt-4">🌐 <a href="https://github.com/DhruvGupta169" class="underline">GitHub</a> |
-       <a href="https://www.linkedin.com/in/dhruv-gupta-963336321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="underline">LinkedIn</a> |
-       <a href="https://www.instagram.com/dgupta_26?igsh=MWJqOXJnOWxweXpqeA==" class="underline">Instagram</a></p>
+    <p>📍 
+      <iframe src="https://www.google.com/maps?q=dahanu,Maharashtra&output=embed" width="100%" height="200" style="border:0;" allowfullscreen></iframe>
+    </p>
+    <p class="mt-4">🌐 
+      <a href="https://github.com/DhruvGupta169" target="_blank" class="underline">GitHub</a> |
+      <a href="https://www.linkedin.com/in/dhruv-gupta-963336321" target="_blank" class="underline">LinkedIn</a> |
+      <a href="https://www.instagram.com/dgupta_26" target="_blank" class="underline">Instagram</a>
+    </p>
     <form action="https://formspree.io/f/myzwvaqj" method="POST" class="mt-6 flex flex-col gap-4">
       <input type="text" name="name" placeholder="Your Name" required class="border p-2 rounded-md" />
       <input type="email" name="_replyto" placeholder="Your Email" required class="border p-2 rounded-md" />
       <textarea name="message" placeholder="Your Message" required class="border p-2 rounded-md"></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-800">Send</button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-all duration-300">Send</button>
     </form>
   </section>
 
+  <!-- Footer -->
   <footer class="bg-blue-700 text-white text-center py-4 mt-12">
-    <p>© 2025 Dhruv Umesh Gupta </p>
+    <p>© 2025 Dhruv Umesh Gupta</p>
   </footer>
 
-  <!-- AOS JS -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    AOS.init();
 
-  <!-- Custom JS -->
-  <script src="script.js"></script>
+    // Vanta Background
+    document.addEventListener('DOMContentLoaded', function () {
+      VANTA.WAVES({
+        el: "#welcome",
+        mouseControls: true,
+        touchControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x0077be,
+        shininess: 50,
+        waveHeight: 20,
+        waveSpeed: 1.2,
+        zoom: 0.85
+      });
+    });
+
+    // Fetch JSON data for Achievements
+    fetch('achievements.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('achievements-title').textContent = data.title;
+        const list = document.getElementById('achievements-list');
+        data.items.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item.description;
+          list.appendChild(li);
+        });
+      })
+      .catch(error => console.error('Error loading achievements:', error));
+
+    // Fetch JSON data for Goals
+    fetch('goals.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('goals-title').textContent = data.title;
+        document.getElementById('goals-description').textContent = data.description;
+      })
+      .catch(error => console.error('Error loading goals:', error));
+
+    // Fetch JSON data for Personal Side
+    fetch('personal.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('personal-title').textContent = data.title;
+        const container = document.getElementById('personal-details');
+        data.items.forEach(item => {
+          const p = document.createElement('p');
+          p.textContent = item.description;
+          container.appendChild(p);
+        });
+      })
+      .catch(error => console.error('Error loading personal data:', error));
+
+    // Scroll-to-top button functionality
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('hidden');
+    }
+  </script>
+
 </body>
 </html>
