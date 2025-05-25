@@ -217,7 +217,7 @@
 
       <div class="video-container mx-auto max-w-2xl mb-10">
         <iframe
-          src="intro.mp4" frameborder="0"
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
           title="Dhruv Gupta Introduction Video"
@@ -281,7 +281,8 @@ Data Structures</p>
       </div>
     <p id="achievements-error" class="text-accent text-center hidden mt-4">Major project: Mini Drone
 College inside internship in 2024
-Led college team for community project and Class representative of my class</p>
+Led college team for community project and Class representative of my class
+</p>
   </section>
 
   <section id="goals" class="container mx-auto my-16 p-8 bg-cardLight rounded-xl shadow-2xl border-t-4 border-secondary transition-colors duration-300" data-aos="fade-up">
@@ -418,11 +419,11 @@ Led college team for community project and Class representative of my class</p>
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(HTTP error! status: ${response.status});
         }
         return await response.json();
       } catch (error) {
-        console.error(`Error loading data from ${url}:`, error);
+        console.error(Error loading data from ${url}:, error);
         throw error; // Re-throw to be caught by the calling function
       }
     }
@@ -449,7 +450,7 @@ Led college team for community project and Class representative of my class</p>
       const errorElement = document.getElementById('achievements-error');
 
       if (data.title) {
-        titleElement.innerHTML = `<i class="fas fa-trophy text-secondary"></i> ${data.title}`;
+        titleElement.innerHTML = <i class="fas fa-trophy text-secondary"></i> ${data.title};
       }
 
       if (data.items && Array.isArray(data.items)) {
@@ -474,7 +475,7 @@ Led college team for community project and Class representative of my class</p>
       const errorElement = document.getElementById('goals-error');
 
       if (data.title) {
-        titleElement.innerHTML = `<i class="fas fa-bullseye text-secondary"></i> ${data.title}`;
+        titleElement.innerHTML = <i class="fas fa-bullseye text-secondary"></i> ${data.title};
       }
 
       if (data.description) {
