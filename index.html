@@ -1,213 +1,235 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dhruv Gupta - Portfolio, Education, Goals, Achievements" />
-  <meta name="author" content="Dhruv Gupta" />
-  <meta property="og:title" content="Dhruv Gupta's Portfolio" />
-  <meta property="og:image" content="link-to-your-preview-image" />
-  <meta property="og:description" content="Personal introduction portfolio site." />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="favicon.ico" />
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Optional: DaisyUI -->
-  <script src="https://cdn.jsdelivr.net/npm/daisyui"></script>
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  
-  <!-- Loading Spinner CSS -->
-  <style>
-    .spinner {
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: auto;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dhruv Gupta - Portfolio, Education, Goals, Achievements" />
+    <meta name="author" content="Dhruv Gupta" />
+    <meta property="og:title" content="Dhruv Gupta's Portfolio" />
+    <meta property="og:image" content="link-to-your-preview-image" />
+    <meta property="og:description" content="Personal introduction portfolio site." />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="favicon.ico" />
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daisyui"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+            display: block; /* Ensure it's block to center with margin: auto */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Utility class to hide elements initially */
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+
+    <title>Dhruv Gupta - My Identity</title>
 </head>
 
 <body class="bg-blue-50 text-blue-900 font-sans">
 
-  <!-- Navigation -->
-<header class="bg-blue-700 shadow-md p-4 text-white flex justify-between items-center">
-  <h1 class="text-xl font-bold">My Identity</h1>
-  <button id="hamburger" class="md:hidden text-white p-2" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-  </button>
-  <ul id="navbar" class="flex space-x-4 hidden md:flex">
-    <li><a href="#welcome" class="hover:underline">Welcome</a></li>
-    <li><a href="#about" class="hover:underline">About Me</a></li>
-    <li><a href="#achievements" class="hover:underline">Achievements</a></li>
-    <li><a href="#goals" class="hover:underline">Goals</a></li>
-    <li><a href="#contact" class="hover:underline">Contact</a></li>
-    <li>
-      <a href="https://dhruvgupta169.github.io/shopping/" class="hover:underline flex items-center space-x-1">
-        <i class="fa fa-shopping-cart"></i>
-        <span>Shop</span>
-      </a>
-    </li>
-  </ul>
-</header>
+    <header class="bg-blue-700 shadow-md p-4 text-white flex justify-between items-center">
+        <h1 class="text-xl font-bold">My Identity</h1>
+        <button id="hamburger" class="md:hidden text-white p-2" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul id="navbar" class="flex space-x-4 hidden md:flex">
+            <li><a href="#welcome" class="hover:underline">Welcome</a></li>
+            <li><a href="#about" class="hover:underline">About Me</a></li>
+            <li><a href="#achievements" class="hover:underline">Achievements</a></li>
+            <li><a href="#goals" class="hover:underline">Goals</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+            <li>
+                <a href="https://dhruvgupta169.github.io/shopping/" class="hover:underline flex items-center space-x-1">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Shop</span>
+                </a>
+            </li>
+        </ul>
+    </header>
 
+    <button id="scroll-to-top" class="fixed bottom-4 right-4 bg-blue-700 text-white p-3 rounded-full hidden md:block hover:bg-blue-800 transition-all duration-300" onclick="scrollToTop()">
+        ↑
+    </button>
 
-  <!-- Scroll to Top Button -->
-  <button id="scroll-to-top" class="fixed bottom-4 right-4 bg-blue-700 text-white p-3 rounded-full hidden md:block hover:bg-blue-800 transition-all duration-300" onclick="scrollToTop()">
-    ↑
-  </button>
+    <section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center relative overflow-hidden" data-aos="fade-in" style="min-height: 600px;">
+        <div class="relative z-10">
+            <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
+            <img src="Dhruv.jpeg" alt="Dhruv Gupta's Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
+            <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
+            <video class="mx-auto rounded-lg shadow-lg w-10%" controls autoplay loop muted>
+                <source src="intro.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
 
-  <!-- Welcome Section -->
-  <section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg text-center relative overflow-hidden" data-aos="fade-in" style="min-height: 600px;">
-    <div class="relative z-10">
-      <h2 class="text-3xl font-semibold mb-4">Welcome to My World!</h2>
-      <img src="Dhruv.jpeg" alt="Dhruv Gupta's Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-white" />
-      <h3 class="text-xl font-semibold mt-6 mb-2">Watch My Intro Video</h3>
-      <video class="mx-auto rounded-lg shadow-lg w-10%" controls autoplay loop muted>
-        <source src="intro.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </section>
+    <section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+        <h2 class="text-2xl font-bold text-center mb-4">👤 About Me</h2>
+        <p><strong>Name:</strong> Dhruv Umesh Gupta</p>
+        <p><strong>Location:</strong> Dahanu, Palghar, Mumbai, Maharashtra</p>
+        <p><strong>Education:</strong><br>
+            School - St Marys High School, Dahanu 401602<br>
+            College - St John Junior College<br>
+            Degree - B.Tech in Electronics & Computer Science (St. John College of Engineering & Management)
+        </p>
+        <p><strong>Languages:</strong> English (Advanced), Marathi (Medium), Hindi (Medium)</p>
+    </section>
 
-  <!-- About Me -->
-  <section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-    <h2 class="text-2xl font-bold text-center mb-4">👤 About Me</h2>
-    <p><strong>Name:</strong> Dhruv Umesh Gupta</p>
-    <p><strong>Location:</strong> Dahanu, Palghar, Mumbai, Maharashtra</p>
-    <p><strong>Education:</strong><br>
-      School - St Marys High School, Dahanu 401602<br>
-      College - St John Junior College<br>
-      Degree - B.Tech in Electronics & Computer Science (St. John College of Engineering & Management)
-    </p>
-    <p><strong>Languages:</strong> English (Advanced), Marathi (Medium), Hindi (Medium)</p>
-  </section>
+    <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+        <h2 id="achievements-title" class="text-2xl font-bold text-center mb-4"></h2>
+        <div id="achievements-spinner" class="spinner"></div>
+        <ul id="achievements-list" class="list-disc pl-5 space-y-2 text-blue-800 hidden"></ul>
+    </section>
 
-  <!-- Achievements Section (Dynamically Loaded) -->
-  <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-    <h2 id="achievements-title" class="text-2xl font-bold text-center mb-4"></h2>
-    <ul id="achievements-list" class="list-disc pl-5 space-y-2 text-blue-800"></ul>
-  </section>
+    <section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+        <h2 id="goals-title" class="text-2xl font-bold text-center mb-4"></h2>
+        <div id="goals-spinner" class="spinner"></div>
+        <p id="goals-description" class="hidden"></p>
+    </section>
 
-  <!-- Goals Section (Dynamically Loaded) -->
-  <section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-    <h2 id="goals-title" class="text-2xl font-bold text-center mb-4"></h2>
-    <p id="goals-description"></p>
-  </section>
+    <section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+        <h2 id="personal-title" class="text-2xl font-bold text-center mb-4"></h2>
+        <div id="personal-spinner" class="spinner"></div>
+        <div id="personal-details" class="space-y-2 text-gray-800 hidden"></div>
+    </section>
 
-  <!-- Personal Side Section (Dynamically Loaded) 
-  <section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-    <h2 id="personal-title" class="text-2xl font-bold text-center mb-4"></h2>
-    <div id="personal-details" class="space-y-2 text-gray-800"></div>
-  </section>
+    <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
+        <h2 class="text-2xl font-bold text-center mb-4">Contact Me</h2>
+        <p>📞 <a href="tel:919503582657" class="text-blue-600 underline">+91 9503582657</a></p>
+        <p>💬 <a href="https://wa.me/919503582657" target="_blank" class="text-green-600 underline">Chat on WhatsApp</a></p>
+        <p>✉ <a href="mailto:123dhruv7035@sjcem.edu.in" class="text-red-600 underline">123dhruv7035@sjcem.edu.in</a></p>
+        <p class="mt-4">
+            📍
+            <iframe src="https://maps.google.com/maps?q=St.%20John%20College%20of%20Engineering%20and%20Management,%20Palghar&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </p>
+        <p class="mt-4">
+            🌐
+            <a href="https://github.com/DhruvGupta169" target="_blank" class="underline">GitHub</a> |
+            <a href="https://www.linkedin.com/in/dhruv-gupta-963336321" target="_blank" class="underline">LinkedIn</a> |
+            <a href="https://www.instagram.com/dgupta_26" target="_blank" class="underline">Instagram</a>
+        </p>
+        <form action="https://formspree.io/f/myzwvaqj" method="POST" class="mt-6 flex flex-col gap-4">
+            <input type="text" name="name" placeholder="Your Name" required class="border p-2 rounded-md" />
+            <input type="email" name="_replyto" placeholder="Your Email" required class="border p-2 rounded-md" />
+            <textarea name="message" placeholder="Your Message" required class="border p-2 rounded-md"></textarea>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-all duration-300">Send</button>
+        </form>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-    <h2 class="text-2xl font-bold text-center mb-4">Contact Me</h2>
-    <p>📞 <a href="tel:919503582657" class="text-blue-600 underline">+91 9503582657</a></p>
-    <p>💬 <a href="https://wa.me/919503582657" target="_blank" class="text-green-600 underline">Chat on WhatsApp</a></p>
-    <p>✉ <a href="mailto:123dhruv7035@sjcem.edu.in" class="text-red-600 underline">123dhruv7035@sjcem.edu.in</a></p>
-    <p>📍 
-      <iframe src="https://www.google.com/maps?q=dahanu,Maharashtra&output=embed" width="100%" height="200" style="border:0;" allowfullscreen></iframe>
-    </p>
-    <p class="mt-4">🌐 
-      <a href="https://github.com/DhruvGupta169" target="_blank" class="underline">GitHub</a> |
-      <a href="https://www.linkedin.com/in/dhruv-gupta-963336321" target="_blank" class="underline">LinkedIn</a> |
-      <a href="https://www.instagram.com/dgupta_26" target="_blank" class="underline">Instagram</a>
-    </p>
-    <form action="https://formspree.io/f/myzwvaqj" method="POST" class="mt-6 flex flex-col gap-4">
-      <input type="text" name="name" placeholder="Your Name" required class="border p-2 rounded-md" />
-      <input type="email" name="_replyto" placeholder="Your Email" required class="border p-2 rounded-md" />
-      <textarea name="message" placeholder="Your Message" required class="border p-2 rounded-md"></textarea>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-800 transition-all duration-300">Send</button>
-    </form>
-  </section>
+    <footer class="bg-blue-700 text-white text-center py-4 mt-12">
+        <p>© 2025 Dhruv Umesh Gupta</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="bg-blue-700 text-white text-center py-4 mt-12">
-    <p>© 2025 Dhruv Umesh Gupta</p>
-  </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-    // Vanta Background
-    document.addEventListener('DOMContentLoaded', function () {
-      VANTA.WAVES({
-        el: "#welcome",
-        mouseControls: true,
-        touchControls: true,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x0077be,
-        shininess: 50,
-        waveHeight: 20,
-        waveSpeed: 1.2,
-        zoom: 0.85
-      });
-    });
-
-    // Fetch JSON data for Achievements
-    fetch('achievements.json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('achievements-title').textContent = data.title;
-        const list = document.getElementById('achievements-list');
-        data.items.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = item.description;
-          list.appendChild(li);
+        // Vanta Background Initialization (Vibrant Ocean Waves)
+        document.addEventListener('DOMContentLoaded', function () {
+            VANTA.WAVES({
+                el: "#welcome",
+                mouseControls: true,
+                touchControls: true,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x1E90FF, // Dodger Blue
+                color2: 0x40E0D0, // Turquoise for a fresh contrast
+                shininess: 60,
+                waveHeight: 25, // More pronounced waves
+                waveSpeed: 1.5, // Faster, more active waves
+                zoom: 0.9
+            });
         });
-      })
-      .catch(error => console.error('Error loading achievements:', error));
 
-    // Fetch JSON data for Goals
-    fetch('goals.json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('goals-title').textContent = data.title;
-        document.getElementById('goals-description').textContent = data.description;
-      })
-      .catch(error => console.error('Error loading goals:', error));
+        // Function to fetch and display JSON data for a given section
+        function fetchAndDisplayContent(sectionId, titleId, spinnerId, contentId, isList = false) {
+            fetch(`${sectionId}.json`)
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP error! status: ${res.status}`);
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    document.getElementById(spinnerId).classList.add('hidden'); // Hide spinner
+                    document.getElementById(contentId).classList.remove('hidden'); // Show content
+                    document.getElementById(titleId).textContent = data.title;
 
-    // Fetch JSON data for Personal Side
-    fetch('personal.json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('personal-title').textContent = data.title;
-        const container = document.getElementById('personal-details');
-        data.items.forEach(item => {
-          const p = document.createElement('p');
-          p.textContent = item.description;
-          container.appendChild(p);
-        });
-      })
-      .catch(error => console.error('Error loading personal data:', error));
+                    if (isList) {
+                        const list = document.getElementById(contentId);
+                        data.items.forEach(item => {
+                            const li = document.createElement('li');
+                            li.textContent = item.description;
+                            list.appendChild(li);
+                        });
+                    } else if (data.description) {
+                        document.getElementById(contentId).textContent = data.description;
+                    } else if (data.items) { // For personal section
+                        const container = document.getElementById(contentId);
+                        data.items.forEach(item => {
+                            const p = document.createElement('p');
+                            p.textContent = item.description;
+                            container.appendChild(p);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error loading ${sectionId} data:`, error);
+                    document.getElementById(spinnerId).classList.add('hidden'); // Hide spinner even on error
+                    document.getElementById(contentId).textContent = `Failed to load ${sectionId}.`;
+                    document.getElementById(contentId).classList.remove('hidden');
+                });
+        }
 
-    // Scroll-to-top button functionality
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        // Fetch and display data for Achievements, Goals, and Personal sections
+        fetchAndDisplayContent('achievements', 'achievements-title', 'achievements-spinner', 'achievements-list', true);
+        fetchAndDisplayContent('goals', 'goals-title', 'goals-spinner', 'goals-description');
+        fetchAndDisplayContent('personal', 'personal-title', 'personal-spinner', 'personal-details');
 
-    // Hamburger menu toggle
-    function toggleMenu() {
-      const navbar = document.getElementById('navbar');
-      navbar.classList.toggle('hidden');
-    }
-  </script>
+
+        // Scroll-to-top button functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Hamburger menu toggle for mobile
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('hidden');
+        }
+
+        // Show/hide scroll-to-top button based on scroll position
+        window.onscroll = function() {
+            const scrollTopButton = document.getElementById('scroll-to-top');
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopButton.classList.remove('hidden');
+            } else {
+                scrollTopButton.classList.add('hidden');
+            }
+        };
+    </script>
 
 </body>
 </html>
