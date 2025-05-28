@@ -108,10 +108,14 @@
     </section>
 
     <section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
-        <h2 id="personal-title" class="text-2xl font-bold text-center mb-4"></h2>
-        <div id="personal-spinner" class="spinner"></div>
-        <div id="personal-details" class="space-y-2 text-gray-800 hidden"></div>
-    </section>
+        <h2 class="text-2xl font-bold text-center mb-4">My Personal Side</h2>
+        <div id="personal-details" class="space-y-2 text-gray-800">
+            <p>I enjoy learning new programming languages and frameworks in my free time.</p>
+            <p>I have a passion for photography and capturing moments.</p>
+            <p>I like playing cricket and exploring new places.</p>
+            <p>In my spare time, I often read tech blogs and experiment with personal projects.</p>
+        </div>
+        </section>
 
     <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
         <h2 class="text-2xl font-bold text-center mb-4">Contact Me</h2>
@@ -186,14 +190,8 @@
                         });
                     } else if (data.description) {
                         document.getElementById(contentId).textContent = data.description;
-                    } else if (data.items) { // For personal section
-                        const container = document.getElementById(contentId);
-                        data.items.forEach(item => {
-                            const p = document.createElement('p');
-                            p.textContent = item.description;
-                            container.appendChild(p);
-                        });
                     }
+                    // The 'personal' section is now handled directly in HTML, so its `else if (data.items)` branch is not needed here for the fetch function.
                 })
                 .catch(error => {
                     console.error(`Error loading ${sectionId} data:`, error);
@@ -203,10 +201,11 @@
                 });
         }
 
-        // Fetch and display data for Achievements, Goals, and Personal sections
+        // Fetch and display data for Achievements and Goals sections
         fetchAndDisplayContent('achievements', 'achievements-title', 'achievements-spinner', 'achievements-list', true);
         fetchAndDisplayContent('goals', 'goals-title', 'goals-spinner', 'goals-description');
-        fetchAndDisplayContent('personal', 'personal-title', 'personal-spinner', 'personal-details');
+
+        // Removed the fetchAndDisplayContent call for 'personal' as it's now static HTML.
 
 
         // Scroll-to-top button functionality
