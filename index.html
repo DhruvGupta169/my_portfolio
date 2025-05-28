@@ -40,7 +40,7 @@
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
 
     <title>Dhruv Gupta - My Identity</title>
 </head>
@@ -115,7 +115,7 @@
             <p>I like playing cricket and exploring new places.</p>
             <p>In my spare time, I often read tech blogs and experiment with personal projects.</p>
         </div>
-        </section>
+    </section>
 
     <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-md" data-aos="fade-up">
         <h2 class="text-2xl font-bold text-center mb-4">Contact Me</h2>
@@ -148,22 +148,21 @@
     <script>
         AOS.init();
 
-        // Vanta Background Initialization (Vibrant Ocean Waves)
+        // Vanta Background Initialization (FOG effect with subtle colors)
         document.addEventListener('DOMContentLoaded', function () {
-            VANTA.WAVES({
+            VANTA.FOG({
                 el: "#welcome",
                 mouseControls: true,
                 touchControls: true,
                 minHeight: 200.00,
                 minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 1.00,
-                color: 0x1E90FF, // Dodger Blue
-                color2: 0x40E0D0, // Turquoise for a fresh contrast
-                shininess: 60,
-                waveHeight: 25, // More pronounced waves
-                waveSpeed: 1.5, // Faster, more active waves
-                zoom: 0.9
+                // Adjusted colors for a subtle, attractive fog look
+                highlightColor: 0x88aadd, // A lighter blue for highlights
+                midtoneColor: 0x4477aa,  // A medium blue
+                lowlightColor: 0x113355, // A darker blue
+                baseColor: 0x000022,    // Very dark blue/almost black base
+                blur: 0.70, // Increased blur for a softer fog
+                zoom: 0.90 // Slightly zoomed in
             });
         });
 
@@ -191,7 +190,6 @@
                     } else if (data.description) {
                         document.getElementById(contentId).textContent = data.description;
                     }
-                    // The 'personal' section is now handled directly in HTML, so its `else if (data.items)` branch is not needed here for the fetch function.
                 })
                 .catch(error => {
                     console.error(`Error loading ${sectionId} data:`, error);
@@ -204,9 +202,6 @@
         // Fetch and display data for Achievements and Goals sections
         fetchAndDisplayContent('achievements', 'achievements-title', 'achievements-spinner', 'achievements-list', true);
         fetchAndDisplayContent('goals', 'goals-title', 'goals-spinner', 'goals-description');
-
-        // Removed the fetchAndDisplayContent call for 'personal' as it's now static HTML.
-
 
         // Scroll-to-top button functionality
         function scrollToTop() {
